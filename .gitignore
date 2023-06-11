@@ -3,3 +3,6 @@
 
 # PyCharm
 .idea
+
+# Unit test / coverage reports
+.pytest_cache/
