@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
       #       check-out repo and set-up python
@@ -15,7 +15,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
       #----------------------------------------------
       #  -----  install & configure poetry  -----
       #----------------------------------------------
@@ -47,10 +47,14 @@ jobs:
       - name: Install project
         run: poetry install --no-interaction
       #----------------------------------------------
+      #              Black formatter
+      #----------------------------------------------
+#      - run: |
+#          black --check --verbose .
+      #----------------------------------------------
       #              run test suite
       #----------------------------------------------
       - name: Run tests
         run: |
           source .venv/bin/activate
           pytest tests/
-          coverage report
