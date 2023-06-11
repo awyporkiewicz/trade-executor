@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "trade-executor"
+version = "0.1.0"
+description = ""
+authors = ["Anna Wyporkiewicz <anna.wyporkiewicz@gmail.com>"]
+readme = "README.md"
+packages = [{include = "trade_executor"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
