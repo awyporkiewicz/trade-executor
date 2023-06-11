@@ -49,6 +49,10 @@ jobs:
       #----------------------------------------------
       #              Black formatter
       #----------------------------------------------
+      - uses: psf/black@stable
+      - uses: psf/black@stable
+        with:
+          options: "--check --verbose"
 #      - run: |
 #          black --check --verbose .
       #----------------------------------------------
