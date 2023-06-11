@@ -47,6 +47,11 @@ jobs:
       - name: Install project
         run: poetry install --no-interaction
       #----------------------------------------------
+      #              Black formatter
+      #----------------------------------------------
+      - run: |
+          black --check --verbose .
+      #----------------------------------------------
       #              run test suite
       #----------------------------------------------
       - name: Run tests
