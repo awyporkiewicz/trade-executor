@@ -1,1 +1,0 @@
-print("Project trade-executor")
