@@ -34,15 +34,11 @@ Project is created with:
 ## Usage
 ...
 
-**INPUT**
-```
+### Input
 ...
-```
 
-**OUTPUT_1**
-```
+### Output
 ...
-```
 
 ## Links
 ...
