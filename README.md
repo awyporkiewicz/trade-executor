@@ -6,7 +6,7 @@
 ## Table of Contents
 * [Introduction](#introduction)
 * [General info](#general-info)
-* [Technologies Used](#technologies-used)
+* [Technologies](#technologies)
 * [Features](#features)
 * [Usage](#usage)
 * [Links](#links)
