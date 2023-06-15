@@ -1,5 +1,5 @@
-import sqlite3
 import decimal
+import sqlite3
 
 D = decimal.Decimal
 

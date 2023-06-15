@@ -1,9 +1,9 @@
 import asyncio
 
+from helpers.config import args, db_file, schema_path
+from helpers.init_db import create_connection
 from trade import Trade
 from ws_client import ws_run
-from helpers.init_db import create_connection
-from helpers.config import schema_path, db_file, args
 
 
 # the app entry: python main.py --q 500 -p 240.50

@@ -1,8 +1,8 @@
 import sqlite3
 from decimal import Decimal
 
-from offer import Offer
 from helpers.init_db import adapt_decimal
+from offer import Offer
 
 
 class Trade:
@@ -36,7 +36,7 @@ class Trade:
             self.quantity = self.quantity - bid_quantity
         else:
             bid_quantity = self.quantity
-            self.quantity = 0
+            self.quantity = Decimal("0")
             self.complete = True
         return bid_quantity
 

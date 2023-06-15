@@ -10,4 +10,3 @@ CREATE TABLE trade
     timestamp DATETIME DEFAULT (STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))
 );
 COMMIT;
-
