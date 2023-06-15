@@ -1,7 +1,6 @@
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS trade;
-CREATE TABLE trade
-(
+CREATE TABLE trade (
     id         INTEGER PRIMARY KEY,
     update_id  INTEGER NOT NULL,
     symbol     TEXT NOT NULL,

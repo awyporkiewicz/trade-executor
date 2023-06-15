@@ -15,8 +15,9 @@ def main():
         db_file=db_file,
         connection=connection,
     )
-    asyncio.run(ws_run(trade=trade))
-    connection.close()
+    with connection:
+        asyncio.run(ws_run(trade))
+    # connection.close()
     print("Transaction finished")
 
 

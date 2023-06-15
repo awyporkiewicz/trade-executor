@@ -1,7 +1,7 @@
 import sqlite3
 from decimal import Decimal
 
-from helpers.init_db import adapt_decimal
+# from helpers.init_db import adapt_decimal
 from offer import Offer
 
 
@@ -19,6 +19,8 @@ class Trade:
         self.connection = connection
         self.complete = False
 
+    # Invoke, offer
+    # Check arg passed to Mock
     def execute_trade(self, offer: Offer):
         if offer.bid_price >= self.min_price:
             bid_quantity = self._set_quantity(bid_quantity=offer.bid_qty)
@@ -26,9 +28,10 @@ class Trade:
             bid_offer = (
                 offer.update_id,
                 offer.symbol,
-                adapt_decimal(offer.bid_price),
-                adapt_decimal(bid_quantity),
+                str(offer.bid_price),
+                str(bid_quantity),
             )
+            # Mock
             self._save_trade(bid_offer=bid_offer)
 
     def _set_quantity(self, bid_quantity: Decimal):
@@ -47,8 +50,10 @@ class Trade:
             cursor.execute(
                 f"INSERT INTO trade(update_id, symbol, price, quantity) VALUES {bid_offer}"
             )
+            self.connection.commit()
             cursor.execute("commit")
             print(f"Transaction accepted: {bid_offer}")
         except self.connection.Error as e:
             print(e)
+            self.connection.rollback()
             cursor.execute("rollback")

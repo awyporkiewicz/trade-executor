@@ -42,8 +42,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          config: "${{ github.workspace }}/.sqlfluff"
+           # switched off SQLFLUFF, due to an issue, CREATE TABLE statement not parsed in sqlint dialect
+          VALIDATE_SQLFLUFF: False
       # run test suite
       - name: Run tests
         run: |
