@@ -7,3 +7,6 @@
 # Unit test / coverage reports
 .pytest_cache/
 .coverage
+
+# database
+data/trade.sqlite3

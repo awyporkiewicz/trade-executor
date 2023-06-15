@@ -9,9 +9,10 @@ packages = [{include = "trade_executor"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 pytest = "^7.3.2"
-rel = "^0.4.9"
-websocket-client = "^1.5.3"
 pytest-cov = "^4.1.0"
+asyncio = "^3.4.3"
+websockets = "^11.0.3"
+dataclass-wizard = "^0.22.2"
 
 
 [build-system]
