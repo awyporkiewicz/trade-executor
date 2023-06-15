@@ -36,7 +36,7 @@ class Trade:
             self.quantity = self.quantity - bid_quantity
         else:
             bid_quantity = self.quantity
-            self.quantity = Decimal("0")
+            self.quantity = Decimal('0')
             self.complete = True
         return bid_quantity
 
