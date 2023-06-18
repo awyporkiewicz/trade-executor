@@ -1,6 +1,6 @@
 from unittest.mock import Mock
-import pytest
 
+import pytest
 from trade_executor.offer import Offer
 from trade_executor.trade import Trade
 
