@@ -97,21 +97,6 @@ files = [
 toml = ["tomli"]
 
 [[package]]
-name = "dataclass-wizard"
-version = "0.22.2"
-description = "Marshal dataclasses to/from JSON. Use field properties with initial values. Construct a dataclass schema with JSON input."
-optional = false
-python-versions = "*"
-files = [
-    {file = "dataclass-wizard-0.22.2.tar.gz", hash = "sha256:211f842e5e9a8ace50ba891ef428cd78c82579fb98024f80f3e630ca8d1946f6"},
-    {file = "dataclass_wizard-0.22.2-py2.py3-none-any.whl", hash = "sha256:49be36ecc64bc5a1e9a35a6bad1d71d33b6b9b06877404931a17c6a3a6dfbb10"},
-]
-
-[package.extras]
-timedelta = ["pytimeparse (>=1.1.7)"]
-yaml = ["PyYAML (>=5.3)"]
-
-[[package]]
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -268,4 +253,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "3005286e7571b7d2c02aa05f745ec1c50993bdc531a5934ee3b72c26f1b60fcc"
+content-hash = "1f8474c865c1bc1041a62a56b97273dfe2bc6299f5230ab80dfedd07ce0b66f3"

@@ -2,7 +2,7 @@ from decimal import Decimal
 
 
 class Offer:
-    def __init__(self, u: int, s: str, b: float, B: float, a: float, A: float):
+    def __init__(self, u: int, s: str, b: str, B: str, a: str, A: str):
         self.update_id = u
         self.symbol = s
         self.bid_price = Decimal(b)
