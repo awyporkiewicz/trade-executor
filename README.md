@@ -22,26 +22,26 @@ A trade execution service is required to address this situation. It should gener
 ## Technologies
 The project utilizes the following technologies:
 - Python 3.11
-- Websockets: A library for building WebSocket servers and clients in Python. 
+- Websockets: A library for building WebSocket servers and clients in Python.
 - SQLite: A lightweight, serverless database engine used to store trade information.
 
 ## Usage
 To use the Trade Execution Service, run the **main.py** script with appropriate command-line arguments.
 
 Command-line arguments:
-- **-q** or **--quantity**: The order quantity (required). 
-- **-p** or **--price**: The order price (required). 
-- **-s** or **--symbol**: The asset pair symbol (default: `bnbusdt`, choices: `bnbusdt`, `ethusdt`, `btcusdt`, `ethbtc`). 
+- **-q** or **--quantity**: The order quantity (required).
+- **-p** or **--price**: The order price (required).
+- **-s** or **--symbol**: The asset pair symbol (default: `bnbusdt`, choices: `bnbusdt`, `ethusdt`, `btcusdt`, `ethbtc`).
 - **-e** or **--exchange**: The exchange type (default: `bid`, choices: `bid`, `ask`).
 
 ## Example
 
-#### INPUT
+### INPUT
 ```commandline
 python main.py --quantity=200 --price=246.00
 ```
 
-#### OUTPUT
+### OUTPUT
 SQLite database, `schema.sql` with trade information of how the order size was split at the end.
 ```plaintext
 Trade accepted: (8557162238, 'BNBUSDT', '246.30000000', '89.73000000')
