@@ -1,0 +1,10 @@
+# Ignore common editor and IDE files
+.idea/
+
+# Ignore local development files
+__pycache__/
+*.pyc
+
+# Ignore Docker related files
+Dockerfile
+.dockerignore

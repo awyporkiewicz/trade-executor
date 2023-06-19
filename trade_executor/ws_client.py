@@ -11,7 +11,6 @@ async def ws_run(trade: Trade, symbol: str, exchange: str):
     ) as websocket:
         while not trade.complete:
             response = await websocket.recv()
-            print(response)
             rates = json.loads(response, object_hook=lambda x: Offer(**x))
             offer = (
                 trade.analyse_bid_offer(rates)

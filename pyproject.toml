@@ -4,12 +4,14 @@ version = "0.1.0"
 description = ""
 authors = ["Anna Wyporkiewicz <anna.wyporkiewicz@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "trade_executor", from = "." },
+]
 
 
 [tool.poetry.dependencies]
 python = "^3.11"
 pytest = "^7.3.2"
-pytest-cov = "^4.1.0"
 asyncio = "^3.4.3"
 websockets = "^11.0.3"
 
