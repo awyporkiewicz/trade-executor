@@ -2,7 +2,8 @@
 FROM python:3.11-slim
 
 # Set environment variables
-ENV QUANTITY="5000" \
+ENV PIP_NO_CACHE_DIR=1  \
+    QUANTITY="5000" \
     PRICE="230" \
     SYMBOL="bnbusdt" \
     EXCHANGE="bid"
