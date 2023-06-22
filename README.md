@@ -38,16 +38,15 @@ Command-line arguments:
 
 ### INPUT
 ```commandline
-python main.py --quantity=200 --price=246.00
+python main.py --quantity=500 --price=238.00
 ```
 
 ### OUTPUT
 SQLite database, `schema.sql` with trade information of how the order size was split at the end.
 ```plaintext
-Trade accepted: (8557162238, 'BNBUSDT', '246.30000000', '89.73000000')
-Trade accepted: (8557162239, 'BNBUSDT', '246.30000000', '89.73000000')
-Trade accepted: (8557162245, 'BNBUSDT', '246.30000000', '20.54000000')
-Transaction finished.
+17:14:19 | INFO: Trade accepted: Process(update_id=8576147369, symbol='BNBUSDT', exchange='bid', price='243.50000000', selected_qty='372.66000000')
+17:14:19 | INFO: Trade accepted: Process(update_id=8576147370, symbol='BNBUSDT', exchange='bid', price='243.50000000', selected_qty='127.34000000')
+17:14:27 | INFO: Trading closed.
 ```
 
 ## Ideas for Project Development
