@@ -1,60 +1,52 @@
-import sqlite3
 from decimal import Decimal
 
-from trade_executor.offer import Offer
+from trade_executor.rate import Rate
+from trade_executor.process import Process
 
 
 class Trade:
     def __init__(
         self,
-        quantity: float,
+        exchange: str,
         specified_price: float,
-        connection: sqlite3.Connection,
+        quantity: float,
     ):
-        self.quantity = Decimal(quantity)
-        self.specified_price = specified_price
-        self.connection = connection
         self.complete = False
+        self.exchange = exchange
+        self.specified_price = Decimal(specified_price)
+        self.quantity = Decimal(quantity)
 
-    def analyse_bid_offer(self, offer: Offer):
-        if offer.bid_price < self.specified_price:
-            return None
-        bid_quantity = self._set_quantity(offer.bid_qty)
+    def should_trade(self, rate: Rate) -> bool:
+        if (self.exchange == "bid" and rate.bid_price >= self.specified_price) or (
+            self.exchange == "ask" and rate.ask_price >= self.specified_price
+        ):
+            return True
+        return False
+
+    def prepare_trade_process(self, rate: Rate) -> Process:
         return (
-            offer.update_id,
-            offer.symbol,
-            str(offer.bid_price),
-            str(bid_quantity),
-        )
-
-    def analyse_ask_offer(self, offer: Offer):
-        if offer.ask_price < self.specified_price:
-            return None
-        ask_quantity = self._set_quantity(offer.ask_qty)
-        return (
-            offer.update_id,
-            offer.symbol,
-            str(offer.ask_price),
-            str(ask_quantity),
-        )
-
-    def save_trade(self, bid_offer: tuple):
-        try:
-            cursor = self.connection.cursor()
-            cursor.execute(
-                "INSERT INTO trade(update_id, symbol, price, quantity) VALUES(?, ?, ?, ?)",
-                bid_offer,
+            Process(
+                update_id=rate.update_id,
+                symbol=rate.symbol,
+                exchange=self.exchange,
+                price=str(rate.bid_price),
+                selected_qty=str(self._set_trade_quantity(rate.bid_qty)),
             )
-            self.connection.commit()
-            print(f"Trade accepted: {bid_offer}")
-        except self.connection.Error as e:
-            print(e)
+            if self.exchange == "bid"
+            else Process(
+                update_id=rate.update_id,
+                symbol=rate.symbol,
+                exchange=self.exchange,
+                price=str(rate.ask_price),
+                selected_qty=str(self._set_trade_quantity(rate.ask_qty)),
+            )
+        )
 
-    def _set_quantity(self, offer_quantity: Decimal):
-        if offer_quantity < self.quantity:
-            self.quantity = self.quantity - offer_quantity
+    def _set_trade_quantity(self, limit_quantity: Decimal) -> Decimal:
+        if limit_quantity < self.quantity:
+            self.quantity -= limit_quantity
         else:
-            offer_quantity = self.quantity
-            self.quantity = Decimal("0")
             self.complete = True
-        return offer_quantity
+            limit_quantity = self.quantity
+            self.quantity = Decimal("0")
+        return limit_quantity
