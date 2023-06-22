@@ -3,7 +3,6 @@ import sqlite3
 from unittest.mock import MagicMock
 
 import pytest as pytest
-
 from trade_executor.process import Process, save_trading_process
 
 

@@ -11,7 +11,7 @@ def create_connection() -> sqlite3.Connection:
     with open(path + "schema.sql", "r") as sql_file:
         sql_script = sql_file.read()
     sqlite3.register_adapter(decimal.Decimal, lambda d: str(d))
-    sqlite3.register_converter("DECTEXT", lambda s: decimal.Decimal(s))
+    sqlite3.register_converter("DECTEXT", lambda s: decimal.Decimal(str(s)))
 
     conn = sqlite3.connect(path + "trade.sqlite3", detect_types=sqlite3.PARSE_DECLTYPES)
     cursor = conn.cursor()

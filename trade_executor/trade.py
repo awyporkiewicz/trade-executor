@@ -1,7 +1,7 @@
 from decimal import Decimal
 
-from trade_executor.rate import Rate
 from trade_executor.process import Process
+from trade_executor.rate import Rate
 
 
 class Trade:
