@@ -1,8 +1,9 @@
 import sqlite3
 from unittest.mock import Mock, patch
+
 from trade_executor.helpers.logger import logger
-from trade_executor.trade import Trade
 from trade_executor.process import Process
+from trade_executor.trade import Trade
 from trade_executor.ws_client import process_data
 
 

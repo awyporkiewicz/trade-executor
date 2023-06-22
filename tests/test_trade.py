@@ -1,9 +1,9 @@
 from decimal import Decimal
 
 import pytest
+from trade_executor.process import Process
 from trade_executor.rate import Rate
 from trade_executor.trade import Trade
-from trade_executor.process import Process
 
 
 @pytest.fixture

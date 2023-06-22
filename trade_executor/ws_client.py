@@ -3,7 +3,6 @@ import sqlite3
 from decimal import Decimal
 
 import websockets
-
 from trade_executor.helpers.logger import logger
 from trade_executor.process import save_trading_process
 from trade_executor.rate import Rate
