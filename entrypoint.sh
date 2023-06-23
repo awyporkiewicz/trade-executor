@@ -5,4 +5,4 @@ SYMBOL=${SYMBOL:-bnbusdt}
 EXCHANGE=${EXCHANGE:-bid}
 
 # Run your application using the environment variables
-poetry run python main.py -q "$QUANTITY" -p "$PRICE" -s "$SYMBOL" -e "$EXCHANGE"
+poetry run python trade_executor/main.py -q "$QUANTITY" -p "$PRICE" -s "$SYMBOL" -e "$EXCHANGE"
