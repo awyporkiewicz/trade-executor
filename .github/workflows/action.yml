@@ -39,7 +39,12 @@ jobs:
       # install your root project
       - name: Install project
         run: poetry install --no-interaction
-      # Run Codecov
+      # run tests
+      - name: Run tests and collect coverage
+        run: |
+          source .venv/bin/activate
+          pytest --cov trade_executor
+      # run Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
@@ -51,11 +56,4 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-           # switched off SQLFLUFF, due to an issue, CREATE TABLE statement not parsed in sqlint dialect
           VALIDATE_SQLFLUFF: False
-      # run test suite
-      - name: Run tests
-        run: |
-          source .venv/bin/activate
-          pytest tests/
-          
