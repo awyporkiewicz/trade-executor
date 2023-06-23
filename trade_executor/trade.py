@@ -17,11 +17,9 @@ class Trade:
         self.quantity = Decimal(quantity)
 
     def should_trade(self, rate: Rate) -> bool:
-        if (self.exchange == "bid" and rate.bid_price >= self.specified_price) or (
+        return (self.exchange == "bid" and rate.bid_price >= self.specified_price) or (
             self.exchange == "ask" and rate.ask_price >= self.specified_price
-        ):
-            return True
-        return False
+        )
 
     def prepare_trade_process(self, rate: Rate) -> Process:
         return (

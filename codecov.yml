@@ -1,4 +1,6 @@
 codecov:
   token: ${{secrets.CODECOV_TOKEN}}
+coverage:
+  range: "75...100"
 ignore:
   - "*/tests/*"

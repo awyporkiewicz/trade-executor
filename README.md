@@ -1,6 +1,7 @@
 # Trade Executor
 
 [![test](https://github.com/awyporkiewicz/trade-executor/actions/workflows/action.yml/badge.svg)](https://github.com/awyporkiewicz/trade-executor/actions/workflows/action.yml)
+[![codecov](https://codecov.io/gh/awyporkiewicz/trade-executor/branch/main/graph/badge.svg?token=2J84VX2GKQ)](https://codecov.io/gh/awyporkiewicz/trade-executor)
 
 ## Table of Contents
 * [Introduction](#introduction)
