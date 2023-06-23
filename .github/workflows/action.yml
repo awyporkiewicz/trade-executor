@@ -43,7 +43,7 @@ jobs:
       - name: Run tests and collect coverage
         run: |
           source .venv/bin/activate
-          pytest --cov trade_executor
+          pytest --cov trade_executor --cov-report=xml
       # run Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
