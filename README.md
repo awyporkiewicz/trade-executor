@@ -8,7 +8,6 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Usage](#usage)
-* [Example](#example)
 * [Ideas for Project Development](#ideas-for-project-development)
 * [Links](#links)
 
@@ -27,7 +26,14 @@ The project utilizes the following technologies:
 - SQLite: A lightweight, serverless database engine used to store trade information.
 
 ## Usage
+
+### INPUT
+### Standalone
 To use the Trade Execution Service, run the **main.py** script with appropriate command-line arguments.
+
+```commandline
+python main.py --quantity=500 --price=238.00
+```
 
 Command-line arguments:
 - **-q** or **--quantity**: The order quantity (required).
@@ -35,11 +41,11 @@ Command-line arguments:
 - **-s** or **--symbol**: The asset pair symbol (default: `bnbusdt`, choices: `bnbusdt`, `ethusdt`, `btcusdt`, `ethbtc`).
 - **-e** or **--exchange**: The exchange type (default: `bid`, choices: `bid`, `ask`).
 
-## Example
-
-### INPUT
-```commandline
-python main.py --quantity=500 --price=238.00
+### Docker
+Build docker image and run docker container with appropriate arguments. `SYMBOL` and `EXCHANGE` are by default set to `bnbusdt` and `ask`.
+``` commandline
+docker build -t trade_executor .
+docker run -e QUANTITY=200 -e PRICE=240 trade_executor
 ```
 
 ### OUTPUT
